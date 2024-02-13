@@ -11,7 +11,7 @@ const Index = () => {
   useEffect(() => {
     const isSigned = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/check-user', {
+        const response = await fetch('https://hossam-website.onrender.com/api/check-user', {
           method: 'GET',
           credentials: 'include' // To include cookies in the request
         });
@@ -35,7 +35,7 @@ const Index = () => {
   useEffect(()=>{
     const fetchExams = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/exam/get-exams', {
+        const response = await fetch('https://hossam-website.onrender.com/api/exam/get-exams', {
               method: 'GET',
               credentials: 'include', // Send cookies along with the request
           });
@@ -52,7 +52,7 @@ const Index = () => {
   const handleClick = async (id) => {
     
       try {
-        const response = await fetch('http://localhost:5000/api/exam/delete-exam', {
+        const response = await fetch('https://hossam-website.onrender.com/api/exam/delete-exam', {
           method: 'DELETE',
           credentials: 'include',
           headers: {

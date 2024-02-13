@@ -13,7 +13,7 @@ const Dashboard = () => {
   useEffect(() => {
     const isSigned = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/check-user', {
+        const response = await fetch('https://hossam-website.onrender.com/api/check-user', {
           method: 'GET',
           credentials: 'include' // To include cookies in the request
         });
@@ -37,7 +37,7 @@ const Dashboard = () => {
   useEffect(()=>{
     const fetchExams = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/exam/get-exams', {
+        const response = await fetch('https://hossam-website.onrender.com/api/exam/get-exams', {
               method: 'GET',
               credentials: 'include', // Send cookies along with the request
           });

@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   const handleClick = async () => {
     const fetchLogout = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/signout', {
+        const response = await fetch('https://hossam-website.onrender.com/api/signout', {
           method: 'GET',
           credentials: 'include' // To include cookies in the request
         });

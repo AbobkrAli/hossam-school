@@ -67,7 +67,7 @@ const Index = () => {
   useEffect(() => {
     const isSigned = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/check-user', {
+        const response = await fetch('https://hossam-website.onrender.com/api/check-user', {
           method: 'GET',
           credentials: 'include' // To include cookies in the request
         });
@@ -90,7 +90,7 @@ const Index = () => {
   useEffect(()=>{
     const fetchVideos = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/video/get-videos', {
+        const response = await fetch('https://hossam-website.onrender.com/api/video/get-videos', {
               method: 'GET',
               credentials: 'include', // Send cookies along with the request
           });

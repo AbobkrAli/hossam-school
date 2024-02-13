@@ -12,7 +12,7 @@ const LoginPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/user/signin', {
+      const response = await fetch('https://hossam-website.onrender.com/api/user/signin', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ const LoginPage = () => {
   useEffect(() => {
     const isSigned = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/check-user', {
+        const response = await fetch('https://hossam-website.onrender.com/api/check-user', {
           method: 'GET',
           credentials: 'include' // To include cookies in the request
         });

@@ -11,7 +11,7 @@ const Index = () => {
   useEffect(() => {
     const fetchUserScores = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/exam/${examResult}/get-score`);
+        const response = await fetch(`https://hossam-website.onrender.com/api/exam/${examResult}/get-score`);
         if (!response.ok) {
           throw new Error('Failed to fetch user scores');
         }
@@ -28,7 +28,7 @@ const Index = () => {
   useEffect(() => {
     const isSigned = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/check-user', {
+        const response = await fetch('https://hossam-website.onrender.com/api/check-user', {
           method: 'GET',
           credentials: 'include' // To include cookies in the request
         });
