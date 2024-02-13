@@ -24,32 +24,42 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: "https://hossam-school-dnhj.vercel.app", // Remove the square brackets and trailing slash
+    origin: "https://hossam-school-dnhj.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
-    credentials: true, // Allow cookies to be sent from the frontend
+    credentials: true,
   })
 );
+
 
 
   
   connectDB();
 
   
-app.get('/api/check-user', (req, res) => {
-  const {role,userId } = verifyJWTFromCookie(req);  
-  console.log(role,userId);
-  if (role === 'user') {
-    // User-specific logic
-    res.send({role: 'user', userId: userId});
-  } else if (role === 'admin') {
-    // Admin-specific logic
-    res.send({role: 'admin',userId: userId});
-  } else {
-    // Invalid or expired token, or no token found
-    res.send({role: 'Unauthorized'});
-  }
-});
+  app.get('/api/check-user', (req, res) => {
+    const jwtResult = verifyJWTFromCookie(req);  
+    if (!jwtResult) {
+      // Invalid or expired token, or no token found
+      res.send({ role: 'Unauthorized' });
+      return;
+    }
+  
+    const { role, userId } = jwtResult;
+    console.log(role, userId);
+  
+    if (role === 'user') {
+      // User-specific logic
+      res.send({ role: 'user', userId: userId });
+    } else if (role === 'admin') {
+      // Admin-specific logic
+      res.send({ role: 'admin', userId: userId });
+    } else {
+      // Unexpected role
+      res.send({ role: 'Unknown role' });
+    }
+  });
+  
 
 app.use('/api/signout', signOut)
 
