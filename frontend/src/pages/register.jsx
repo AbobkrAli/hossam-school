@@ -58,7 +58,7 @@ useEffect(() => {
   };
 
   isSigned();
-}, []);
+}, [router]);
 
 
   return (

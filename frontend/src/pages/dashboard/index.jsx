@@ -2,7 +2,6 @@
 import { useRouter } from 'next/router';
 import Layout from './Layout';
 import { useEffect, useState } from 'react';
-import { axiosInstance } from '../admin';
 import ExamAdminCard from '@/components/ExamsِAdminCard';
 
 const Dashboard = () => {
@@ -32,7 +31,7 @@ const Dashboard = () => {
     };
 
     isSigned();
-  }, []);
+  }, [router]);
 
 
   useEffect(()=>{
@@ -61,8 +60,8 @@ const Dashboard = () => {
         {/* // data.map((q)=>( */}
       <div className='block bg-gray-400 p-12 w-100%' >
         {exams.map((exam) => (
-          <div className='m-6'>
-            <ExamAdminCard buttonContent="نتيجة الامتحان" examName={exam.name} examGrade={exam.grade} content={exam.content} examSubject={exam.subject} examLink={exam._id} />
+          <div className='m-6' key={exam._id}>
+            <ExamAdminCard  buttonContent="نتيجة الامتحان" examName={exam.name} examGrade={exam.grade} content={exam.content} examSubject={exam.subject} examLink={exam._id} />
           </div>  
         ))}
         

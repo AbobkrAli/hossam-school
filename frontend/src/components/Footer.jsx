@@ -32,7 +32,7 @@ const Foooter = () => {
     };
 
     isSigned();
-  }, []);
+  }, [router]);
 
 
 

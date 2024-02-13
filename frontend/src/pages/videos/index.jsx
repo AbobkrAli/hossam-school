@@ -5,11 +5,11 @@ import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Head from 'next/head'
+import { useRouter } from 'next/router';
+
+
 export const Project = ({ title, content, videoLink ,link, buttonContent }) => {
   
-
-  
-
   return (
       <>
         <Head>
@@ -58,7 +58,7 @@ export const Project = ({ title, content, videoLink ,link, buttonContent }) => {
 };
 
 
-const Projects = () => {
+const Index = () => {
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState('');
 
@@ -83,7 +83,7 @@ const Projects = () => {
     };
 
     isSigned();
-  }, []);
+  }, [router]);
   
   
   
@@ -140,4 +140,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Index;

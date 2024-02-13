@@ -1,7 +1,8 @@
 import { Project } from "@/pages/videos"
 import Layout from "../Layout"
 import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router';
+
 
 const Index = () => {
   const [message, setMessage] = useState();
@@ -47,7 +48,7 @@ const Index = () => {
     };
 
     isSigned();
-  }, []);
+  }, [router]);
 
 
   const handleDelete = async (id) => {

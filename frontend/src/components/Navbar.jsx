@@ -101,7 +101,7 @@ const Navbar = () => {
     };
   
     isSigned();
-  }, []);
+  }, [router]);
   
 
 

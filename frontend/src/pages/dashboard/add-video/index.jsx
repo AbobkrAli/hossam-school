@@ -63,7 +63,7 @@ const Index = () => {
     };
 
     isSigned();
-  }, []);
+  }, [router]);
 
   return (
     <Layout>

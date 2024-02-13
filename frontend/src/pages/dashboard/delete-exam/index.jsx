@@ -29,7 +29,7 @@ const Index = () => {
     };
 
     isSigned();
-  }, []);
+  }, [router]);
 
 
   useEffect(()=>{

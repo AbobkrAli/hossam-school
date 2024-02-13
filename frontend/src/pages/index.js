@@ -26,7 +26,7 @@ export default function Home() {
     };
 
     isSigned();
-  }, []);
+  }, [router]);
 
 
   useEffect(()=>{
@@ -55,11 +55,12 @@ export default function Home() {
       <main className='flex items-center text-dark w-full min-h-screen flex-col'>
         <Layout classname='pt-0 md:pt-16 sm:pt-8'>
           <div className='grid grid-cols-1 w-full mt-8'>
-              {exams?.map((exam)=>(
-                <div key={exam._id} className='my-8'>
-                  <ExamCard key={exam._id} examName={exam.name} examGrade={exam.grade} examContent={exam.content} examSubject={exam.subject} link={exam._id}  />
-                </div>
-              ))}
+          {exams?.map((exam) => (
+            <div key={exam._id} className='my-8'> {/* Provide key prop to the div element */}
+              <ExamCard examName={exam.name} examGrade={exam.grade} examContent={exam.content} examSubject={exam.subject} link={exam._id} />
+            </div>
+          ))}
+
           </div>
         
         </Layout>

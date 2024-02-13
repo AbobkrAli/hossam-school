@@ -25,6 +25,29 @@ const Index = () => {
     fetchUserScores();
   }, [examResult]);
 
+  useEffect(() => {
+    const isSigned = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/check-user', {
+          method: 'GET',
+          credentials: 'include' // To include cookies in the request
+        });
+        const data = await response.json();
+        if(data.role == 'admin'){
+          // done
+        }else if(data.role == 'user'){
+          router.push('/')
+        }else{
+          router.push('/login')
+        }
+      } catch (error) {
+        console.error('Error getting role from frontend:', error);
+      }
+    };
+
+    isSigned();
+  }, [router]);
+
   return (
     <div className="overflow-x-auto min-h-screen">
       <table className="min-w-full">

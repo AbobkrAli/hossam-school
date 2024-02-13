@@ -117,7 +117,7 @@ const AddExamForm = () => {
           };
       
           isSigned();
-        }, []);
+        }, [router]);
 
         return (
             <Layout>

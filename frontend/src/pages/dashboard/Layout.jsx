@@ -3,26 +3,24 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 
 const Layout = ({ children }) => {
+  const router = useRouter();
 
-  const router = useRouter()
-
-  const handleClick = async()=>{
-    const fetchLogout = async () =>{
+  const handleClick = async () => {
+    const fetchLogout = async () => {
       try {
-          const response = await fetch('http://localhost:5000/api/signout', {
-            method: 'GET',
-            credentials: 'include' // To include cookies in the request
-          });
-          
-        } catch (error) {
-          console.error('Error getting role from frontend:', error);
-        }
-      };
-      fetchLogout()
-      window.location.reload()
-    }
+        const response = await fetch('http://localhost:5000/api/signout', {
+          method: 'GET',
+          credentials: 'include' // To include cookies in the request
+        });
+      } catch (error) {
+        console.error('Error getting role from frontend:', error);
+      }
+    };
 
-  }
+    fetchLogout();
+    window.location.reload();
+  };
+
   return (
     <div className='flex '>
       <Sidebar aria-label="Sidebar with multi-level dropdown example" className='h-[100vh]'>
@@ -36,7 +34,6 @@ const Layout = ({ children }) => {
               <Link href="/dashboard/add-video" className='my-6'>اضافة فيديو</Link>
               <p className='cursor-pointer' onClick={handleClick}>تسجيل الخروج</p>
             </div>
-            
           </Sidebar.ItemGroup>
         </Sidebar.Items>
       </Sidebar>
