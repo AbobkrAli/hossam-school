@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Layout from '@/components/Layout'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
-
+import Head from 'next/head'
 export const Project = ({ title, content, videoLink ,link, buttonContent }) => {
   
 
