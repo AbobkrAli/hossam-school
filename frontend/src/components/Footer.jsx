@@ -23,8 +23,6 @@ const Foooter = () => {
         const data = await response.json();
         if(data.role == 'admin' || data.role == 'user'){
           setRole(data.role)
-        }else{
-          router.push('/login')
         }
       } catch (error) {
         console.error('Error getting role from frontend:', error);
