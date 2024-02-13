@@ -43,7 +43,7 @@ export const protectUser = AsyncHandler(async (req, res, next) => {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
     // Check user role
-    if (decoded.role === 'user') {
+    if (decoded.role === 'user' || decoded.role === 'admin') {
       next(); // Proceed to the next middleware
     } else {
       return res.status(403).json({ message: 'Not authorized, insufficient permissions' });

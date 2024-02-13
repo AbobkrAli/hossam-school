@@ -20,7 +20,7 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/api/user/register', {
+      const response = await fetch('https://hossam-website.onrender.com/api/user/register', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',
