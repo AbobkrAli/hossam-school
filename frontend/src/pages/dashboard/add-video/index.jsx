@@ -2,7 +2,7 @@ import  { useEffect, useState } from 'react'
 import Layout from '../Layout'
 import { useRouter } from 'next/router';
 
-const index = () => {
+const Index = () => {
   const [message, setMessage] = useState('')
   const [title, setTitle] = useState('');
   const [imageURL, setImageURL] = useState('');
@@ -126,4 +126,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

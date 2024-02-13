@@ -2,7 +2,7 @@ import Layout from '../Layout'
 import  { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 
-const index = () => {
+const Index = () => {
   const [exams, setExams] = useState([])
   const [message, setMessage] = useState('')
   const router = useRouter()
@@ -101,4 +101,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

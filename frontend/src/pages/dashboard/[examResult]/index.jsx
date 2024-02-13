@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import  { useState, useEffect } from 'react';
 
 
-const index = () => {
+const Index = () => {
   const [userScores, setUserScores] = useState([]);
 
   const router = useRouter()
@@ -51,4 +51,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

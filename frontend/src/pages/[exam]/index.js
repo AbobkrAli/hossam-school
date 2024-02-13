@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
 
-const index = () => {
+const Index = () => {
     const [questionsData, setQuestionsData] = useState([])
   const [userAnswers, setUserAnswers] = useState([]);
   const handleAnswerChange = (index, answer) => {
@@ -126,4 +126,4 @@ const index = () => {
   
 }
 
-export default index
+export default Index

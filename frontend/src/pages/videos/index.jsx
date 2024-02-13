@@ -58,7 +58,7 @@ export const Project = ({ title, content, videoLink ,link, buttonContent }) => {
 };
 
 
-const projects = () => {
+const Projects = () => {
   const [videos, setVideos] = useState([]);
   const [error, setError] = useState('');
 
@@ -140,4 +140,4 @@ const projects = () => {
   );
 };
 
-export default projects;
+export default Projects;
