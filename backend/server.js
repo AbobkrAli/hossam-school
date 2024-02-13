@@ -24,12 +24,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: ["https://hossam-school-dnhj.vercel.app/"], // Adjust to your frontend origin
+    origin: "https://hossam-school-dnhj.vercel.app", // Remove the square brackets and trailing slash
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true, // Allow cookies to be sent from the frontend
   })
-  );
+);
+
+
   
   connectDB();
 
