@@ -5,7 +5,6 @@ import { useRouter } from 'next/router';
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
-import { FaTiktok } from "react-icons/fa";
 import { motion, AnimatePresence } from 'framer-motion';
 
 const CustomLink = ({ href, title, className = "" }) => {
@@ -76,6 +75,7 @@ const Navbar = () => {
       };
       fetchLogout()
       window.location.reload()
+      
     }
   
   // for nav bar

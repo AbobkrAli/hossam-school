@@ -78,7 +78,7 @@ const Index = () => {
   
     const score = calcResult();
     try {
-      const response = await fetch('http://localhost:5000/api/exam/addUserScoreToExam', {
+      const response = await fetch('https://hossam-website.onrender.com/api/exam/addUserScoreToExam', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

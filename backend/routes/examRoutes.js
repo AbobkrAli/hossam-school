@@ -9,6 +9,6 @@ router.get('/get-exams',protectUser, getExams);
 router.get('/:id/get-exam',protectUser, getExam);
 router.get('/:examId/get-score',protectUser, getUserScores);
 router.delete('/delete-exam',protectAdmin, deleteExam);
-router.post('/addUserScoreToExam',protectUser, addUserScoreToExam)
+router.post('/addUserScoreToExam', addUserScoreToExam)
 
 export default router;

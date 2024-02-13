@@ -1,4 +1,5 @@
 
+import Layout from '../Layout';
 import { useRouter } from 'next/router';
 import  { useState, useEffect } from 'react';
 
@@ -49,28 +50,30 @@ const Index = () => {
   }, [router]);
 
   return (
-    <div className="overflow-x-auto min-h-screen">
-      <table className="min-w-full">
-        <thead>
-          <tr>
-            <th className="px-4 py-2">Username</th>
-            <th className="px-4 py-2">Number</th>
-            <th className="px-4 py-2">Grade</th>
-            <th className="px-4 py-2">Score</th>
-          </tr>
-        </thead>
-        <tbody>
-          {userScores.map((userScore, index) => (
-            <tr key={index}>
-              <td className="border px-4 py-2">{userScore.username}</td>
-              <td className="border px-4 py-2">{userScore.number}</td>
-              <td className="border px-4 py-2">{userScore.grade}</td>
-              <td className="border px-4 py-2">{userScore.score}</td>
+    <Layout>
+      <div className="overflow-x-auto min-h-screen">
+        <table className="min-w-full">
+          <thead>
+            <tr>
+              <th className="px-4 py-2">Username</th>
+              <th className="px-4 py-2">Number</th>
+              <th className="px-4 py-2">Grade</th>
+              <th className="px-4 py-2">Score</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {userScores.map((userScore, index) => (
+              <tr key={index}>
+                <td className="border px-4 py-2">{userScore.username}</td>
+                <td className="border px-4 py-2">{userScore.number}</td>
+                <td className="border px-4 py-2">{userScore.grade}</td>
+                <td className="border px-4 py-2">{userScore.score}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </Layout>
   );
 };
 
