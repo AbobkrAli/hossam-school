@@ -1,9 +1,10 @@
 import jwt from 'jsonwebtoken';
 import AsyncHandler from 'express-async-handler'
 
-export const protectAdmin = AsyncHandler(async(req, res, next) =>{
-    
-  const { jwt: token } = req.cookies
+
+export const protectAdmin = AsyncHandler(async (req, res, next) => {
+  const { jwt: token } = req.cookies;
+
   // Check if token exists
   if (!token) {
     return res.status(401).json({ message: 'Not authorized, no token provided' });
@@ -12,22 +13,26 @@ export const protectAdmin = AsyncHandler(async(req, res, next) =>{
   try {
     // Verify the token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    if(decoded.role == 'admin'){
-      next()
+
+    // Check admin role
+    if (decoded.role === 'admin') {
+      next(); // Proceed to the next middleware
+    } else {
+      return res.status(403).json({ message: 'Not authorized, insufficient permissions' });
     }
-    
   } catch (error) {
     // Token verification failed
+    console.error('Token verification failed:', error);
     return res.status(401).json({ message: 'Not authorized, invalid token' });
   }
-})
+});
 
 
 
 
-export const protectUser = AsyncHandler(async(req, res, next) =>{
-    
-  const { jwt: token } = req.cookies
+export const protectUser = AsyncHandler(async (req, res, next) => {
+  const { jwt: token } = req.cookies;
+
   // Check if token exists
   if (!token) {
     return res.status(401).json({ message: 'Not authorized, no token provided' });
@@ -36,15 +41,20 @@ export const protectUser = AsyncHandler(async(req, res, next) =>{
   try {
     // Verify the token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    if(decoded.role == 'user'){
-      next()
+
+    // Check user role
+    if (decoded.role === 'user') {
+      next(); // Proceed to the next middleware
+    } else {
+      return res.status(403).json({ message: 'Not authorized, insufficient permissions' });
     }
-    
   } catch (error) {
     // Token verification failed
+    console.error('Token verification failed:', error);
     return res.status(401).json({ message: 'Not authorized, invalid token' });
   }
-})
+});
+
 
 
 
