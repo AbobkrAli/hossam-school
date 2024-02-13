@@ -57,7 +57,7 @@ export default function Home() {
           <div className='grid grid-cols-1 w-full mt-8'>
               {exams?.map((exam)=>(
                 <div key={exam._id} className='my-8'>
-                  <ExamCard examName={exam.name} examGrade={exam.grade} examContent={exam.content} examSubject={exam.subject} link={exam._id}  />
+                  <ExamCard key={exam._id} examName={exam.name} examGrade={exam.grade} examContent={exam.content} examSubject={exam.subject} link={exam._id}  />
                 </div>
               ))}
           </div>
