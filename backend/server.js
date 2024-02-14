@@ -37,27 +37,42 @@ app.use(
   connectDB();
 
   
+  // app.get('/api/check-user', (req, res) => {
+  //   const jwtResult = verifyJWTFromCookie(req);  
+  //   if (!jwtResult) {
+  //     // Invalid or expired token, or no token found
+  //     res.send({ role: 'Unauthorized' });
+  //     return;
+  //   }
+  
+  //   const { role, userId } = jwtResult;
+  //   console.log(role, userId);
+  
+  //   if (role === 'user') {
+  //     // User-specific logic
+  //     res.send({ role: 'user', userId: userId });
+  //   } else if (role === 'admin') {
+  //     // Admin-specific logic
+  //     res.send({ role: 'admin', userId: userId });
+  //   } else {
+  //     // Unexpected role
+  //     res.send({ role: 'Unknown role' });
+  //   }
+
+  // });
+
+
   app.get('/api/check-user', (req, res) => {
-    const jwtResult = verifyJWTFromCookie(req);  
-    if (!jwtResult) {
-      // Invalid or expired token, or no token found
-      res.send({ role: 'Unauthorized' });
-      return;
-    }
-  
-    const { role, userId } = jwtResult;
-    console.log(role, userId);
-  
-    if (role === 'user') {
-      // User-specific logic
-      res.send({ role: 'user', userId: userId });
-    } else if (role === 'admin') {
-      // Admin-specific logic
-      res.send({ role: 'admin', userId: userId });
-    } else {
-      // Unexpected role
-      res.send({ role: 'Unknown role' });
-    }
+   if (req.isAuthenticated()) {
+     if(req.user.isAdmin === false){
+       res.send({ role: 'user', userId: req.user._id });
+      }else if(req.user.isAdmin === true){
+       res.send({ role: 'admin', userId: req.user._id });
+     }
+  } else {
+    res.status(401).send({ role: 'Unknown role' });
+  }
+
   });
   
 
