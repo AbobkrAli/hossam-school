@@ -95,11 +95,13 @@ export const verifyJWTFromCookie = (req) => {
 
 
 
-export const signOut = AsyncHandler(async(req, res, next) =>{
+export const signOut = AsyncHandler(async (req, res, next) => {
   res.setHeader(
     "Set-Cookie",
     `jwt=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT; Secure; HttpOnly; SameSite=None`
-  ).send('done clearing the token')
-})
+  );
+  res.send('done clearing the token');
+});
+
 
 

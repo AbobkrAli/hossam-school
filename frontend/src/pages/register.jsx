@@ -86,7 +86,7 @@ useEffect(() => {
           <select id="grade" name="grade" value={formData.grade} onChange={handleChange} className="w-full border-gray-300 rounded-md px-4 py-2" required>
             <option value="first">اولي ثانوي</option>
             <option value="second">ثانية ثانوي</option>
-            <option value="third">ثالية ثانوي</option>
+            <option value="third">ثالثة ثانوي</option>
           </select>
         </div>
         <div>

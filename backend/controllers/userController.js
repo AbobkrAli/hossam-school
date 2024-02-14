@@ -50,7 +50,7 @@ export const signInUser = async (req, res) => {
     const token = generateJWT(user._id, user.isAdmin ? 'admin' : 'user');
     res.setHeader(
       "Set-Cookie",
-      `jwt=${token}; Path=/; Secure; HttpO  nly; SameSite=None; Max-Age=2592000` // Max-Age is equivalent to 30 days in seconds
+      `jwt=${token}; Path=/; Secure; HttpOnly; SameSite=None; Max-Age=2592000` // Max-Age is equivalent to 30 days in seconds
     );
     // Send the token along with user data
     res.json({ message: 'User signed in successfully', token, user });

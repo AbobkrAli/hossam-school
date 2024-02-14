@@ -35,7 +35,7 @@ const LoginPage = () => {
           credentials: 'include' // To include cookies in the request
         });
         const data = await response.json();
-        if(data.role == 'user' || data.role == 'admin'){
+        if(data.role === 'user' || data.role === 'admin'){
           router.push('/')
         }
       } catch (error) {
