@@ -74,7 +74,9 @@ const Navbar = () => {
         }
       };
       fetchLogout()
-      
+      setTimeout(() => {
+        router.push('/login'); // Redirects the user to '/another-page'
+      }, 1500);
     }
   
   // for nav bar
