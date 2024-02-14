@@ -13,7 +13,8 @@ import userRoutes from './routes/userRoutes.js';
 import examRoutes from './routes/examRoutes.js';
 import videoRoutes from './routes/videoRoutes.js'
 import { verifyJWTFromCookie } from './middleware/authMiddleware.js';
-
+import session from 'express-session';
+import passport from 'passport';
 dotenv.config();
 
 const app = express();
@@ -33,7 +34,15 @@ app.use(
 );
 
 
-  
+app.use(session({
+  secret: process.env.JWT_SECRET,
+  resave: false,
+  saveUninitialized: false,
+}));
+
+// Initialize Passport
+app.use(passport.initialize());
+app.use(passport.session());
   connectDB();
 
   
