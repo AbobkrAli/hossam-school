@@ -32,7 +32,7 @@ const RegisterForm = () => {
 
       setMessage('تم اضافة حسابك بنجاح')
       setTimeout(() => {
-        router.push('/login')
+        router.push('/')
       }, 1000);
   } catch (error) {
       console.error('Registration failed:', error);
