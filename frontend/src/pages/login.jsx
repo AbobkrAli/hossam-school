@@ -21,12 +21,12 @@ const LoginPage = () => {
           body: JSON.stringify({email,password}),
       });
       const data = await response.json();
-      window.location.reload();
-
+      router.push('/')
   } catch (error) {
       console.error('sign in failed:', error);
   }
 }
+
   useEffect(() => {
     const isSigned = async () => {
       try {
