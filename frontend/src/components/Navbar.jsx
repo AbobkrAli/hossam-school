@@ -74,7 +74,6 @@ const Navbar = () => {
         }
       };
       fetchLogout()
-      window.location.reload()
       
     }
   

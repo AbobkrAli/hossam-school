@@ -18,7 +18,6 @@ const Layout = ({ children }) => {
     };
 
     fetchLogout();
-    window.location.reload();
   };
 
   return (
