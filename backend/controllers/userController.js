@@ -24,15 +24,9 @@ export const registerUser = async (req, res) => {
     const token = generateJWT(user._id, user.isAdmin ? 'admin' : 'user');
     res.setHeader(
       "Set-Cookie",
-      `jwt=${token}; Path=/;Secure;HttpOnly;SameSite=None;Max-Age=2592000` // Max-Age is equivalent to 30 days in seconds
+      `jwt=${token}; Path=/;HttpOnly;SameSite=None;Max-Age=2592000` // Max-Age is equivalent to 30 days in seconds
     );
-    res.cookie('jwt', token, {
-      path: '/',
-      secure: true,
-      httpOnly: true,
-      sameSite: 'none',
-      maxAge: 2592000 // 30 days in seconds
-  });
+   
     res.status(201).json({ message: 'User registered successfully', user });
   } catch (error) {
     res.status(500).json({ message: 'Failed to register user from bacend endpoint', error: error.message });

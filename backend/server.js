@@ -26,11 +26,11 @@ app.use(
   cors({
     origin: "https://hossam-school.vercel.app",
     methods: ["GET", "POST", "PUT", "DELETE"],
-    allowedHeaders: ["Content-Type", "Authorization"],
+    allowedHeaders: ["Content-Type", "Authorization", "Set-Cookie"], // Expose Set-Cookie header
     credentials: true,
+    exposedHeaders: ["Set-Cookie"], // Expose Set-Cookie header
   })
 );
-
 
 
   
